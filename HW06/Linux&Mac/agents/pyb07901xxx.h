@@ -59,16 +59,16 @@ public:
 
         string viewStr=view.getMapStr();
 
-        char file[100];
+        char file[50]="";
         strcat(file,"agents/");
         strcat(file,studentID);
         strcat(file,".txt");
 
-        char command[100]="python3 agents/";
+        char command[100]="python agents/";
         strcat(command,studentID);
         strcat(command,".py  agents/");
         strcat(command,studentID);
-        strcat(command,".py");
+        strcat(command,".txt");
         strToFile(viewStr,file);
         FILE * fp;
     	char buffer[80]="";
@@ -76,7 +76,7 @@ public:
     	fgets(buffer, sizeof(buffer), fp);
     	pclose(fp);
 
-        return getMove( (int)buffer[0] -48);
+        return getMove( (int)buffer[0]-48);
 
     }
 
